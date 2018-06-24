@@ -129,39 +129,56 @@ export default WithSlidesLink(
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={2} textColor="tertiary">
-              why use graphql?
+              ever ask yourself...
             </Heading>
             <List>
               <Appear>
-                <ListItem>Get all your data with one request</ListItem>
+                <ListItem>where is this data coming from?</ListItem>
               </Appear>
               <Appear>
-                <ListItem>No more custom API for every application</ListItem>
+                <ListItem>what uses this data?</ListItem>
               </Appear>
               <Appear>
-                <ListItem>No more sneaky breaking changes</ListItem>
+                <ListItem>why a different API for every app?</ListItem>
               </Appear>
             </List>
           </Slide>
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={2} textColor="tertiary">
-              { "... Apollo <> Relay?" }
+              instead
             </Heading>
             <List>
               <Appear>
-                <ListItem>Per component data encapsulation</ListItem>
-              </Appear>
-              <Appear>
-                <ListItem>Client side data that matches domain model</ListItem>
-              </Appear>
-              <Appear>
                 <ListItem>
-                  ...without an explosion of boilerplate
+                  build these answers into your code
+                  <List>
+                    <Appear>
+                      <ListItem>like comments?</ListItem>
+                    </Appear>
+                    <Appear>
+                      <ListItem>no, comments are unreliable</ListItem>
+                    </Appear>
+                    <Appear>
+                      <ListItem>
+                        declarative code, it is like a comment...
+                      </ListItem>
+                    </Appear>
+                    <Appear>
+                      <ListItem>that your computer can run</ListItem>
+                    </Appear>
+                  </List>
                 </ListItem>
               </Appear>
               <Appear>
-                <ListItem>Worry about the data you are changing, not where you need to change it</ListItem>
+                <ListItem>
+                  also: build generic APIs
+                  <List>
+                    <Appear>
+                      <ListItem>not coupled app services</ListItem>
+                    </Appear>
+                  </List>
+                </ListItem>
               </Appear>
             </List>
           </Slide>
@@ -174,14 +191,13 @@ export default WithSlidesLink(
 
           <Slide
             notes={`
-            Show that you can modify the element in real time.
-
-            Modify the text of the component.
-            Change MyComponent to Foo, see it break.
+            This example demonstrates not knowing where the data came from.
           `}
           >
-            <ReactExample />
+            <ReactExample code={require("./where-data-source.raw")}/>
           </Slide>
+
+          {/* FIXME: Bookmark, remove when done */}
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={4} textColor="black">

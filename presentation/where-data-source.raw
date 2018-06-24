@@ -1,0 +1,29 @@
+class AddressCard extends React.Component {
+  render() {
+    const {
+      name: { first, last },
+      dob,
+      avatar
+    } = this.props.user;
+
+    return (
+      <div>
+        <div>
+          <img src={avatar} /> {first} {last}
+        </div>
+        <div>{dob}</div>
+      </div>
+    );
+  }
+}
+
+render(
+  <AddressCard
+    user={{
+      name: { first: "John", last: "Doe" },
+      dob: "03/24/85",
+      avatar: "https://placekitten.com/50/50"
+    }}
+  />,
+  mountNode
+);
