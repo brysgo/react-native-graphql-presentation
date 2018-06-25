@@ -36,10 +36,9 @@ import createTheme from "spectacle/lib/themes/default";
 
 // Require CSS
 require("normalize.css");
-require("spectacle/lib/themes/default/index.css");
+require("spectacle/lib/themes/default");
 require("./index.css");
 require("codemirror/mode/jsx/jsx");
-require("spectacle/lib/themes/default/dark.codemirror.css");
 
 import { FolderStructure, Folder, File } from "./folders";
 
@@ -189,12 +188,24 @@ export default WithSlidesLink(
             </Heading>
           </Slide>
 
+          {[1, 2].map(i => (
+            <Slide
+              notes={`
+            show how confusion builds over time
+          `}
+            >
+              <ReactExample
+                code={require(`./progressive-complexity/${i}-before-graphql.raw`)}
+              />
+            </Slide>
+          ))}
+
           <Slide
             notes={`
-            This example demonstrates not knowing where the data came from.
+            ...
           `}
           >
-            <ReactExample code={require("./where-data-source.raw")}/>
+            <ReactExample code={require("./after-fragment-composition.raw")} />
           </Slide>
 
           {/* FIXME: Bookmark, remove when done */}

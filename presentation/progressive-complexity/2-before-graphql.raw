@@ -1,0 +1,49 @@
+class AddressRow extends React.Component {
+  render() {
+    const {
+      name: { first, last },
+      dob,
+      avatar
+    } = this.props.user;
+
+    return (
+      <div style={styles.row}>
+        <div>
+          <img src={avatar} />
+        </div>
+        <div style={styles.details}>
+          <div>
+            {first} {last}
+          </div>
+          <div>{dob}</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class AddressList extends React.Component {
+  render() {
+    return (
+      <div>
+        {this.props.addresses.map(address => <AddressRow user={address} />)}
+      </div>
+    );
+  }
+}
+
+const styles = {
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 10
+  },
+  details: {
+    display: "flex",
+    flexDirection: "column",
+    fontSize: 23,
+    paddingLeft: 10
+  }
+};
+
+render(<AddressList addresses={AddressListData} />);

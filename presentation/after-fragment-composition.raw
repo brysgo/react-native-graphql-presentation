@@ -1,0 +1,52 @@
+class AddressRow extends React.Component {
+  render() {
+    const {
+      name: { first, last },
+      dob,
+      avatar
+    } = this.props.user;
+
+    return (
+      <Fragments
+        fragments={{
+          data: gql`
+            fragment AddressRow on Person {
+              avatar
+              name {
+                first
+                last
+              }
+              dob
+            }
+          `
+        }}
+      >
+        {({ data }) => (
+          <div style={styles.row}>
+            <div>
+              <img src={avatar} />
+            </div>
+            <div style={styles.details}>
+              <div>
+                {first} {last}
+              </div>
+              <div>{dob}</div>
+            </div>
+          </div>
+        )}
+      </Fragments>
+    );
+  }
+}
+
+class AddressList extends React.Component {
+  render() {
+    return (
+      <ListProvider>
+        {this.props.addresses.map(address => <AddressRow user={address} />)}
+      </ListProvider>
+    );
+  }
+}
+
+render(<AddressList addresses={AddressListData} />);
