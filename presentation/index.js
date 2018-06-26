@@ -233,25 +233,38 @@ export default WithSlidesLink(
           </Slide>
 
           <Slide>
-          <Fill>
-            <CodePane theme="light" lang="jsx" source={jsx`
+            <Fill>
+              <CodePane
+                theme="light"
+                lang="jsx"
+                source={jsx`
               const client = new ApolloClient();
-            `}/>
+            `}
+              />
             </Fill>
           </Slide>
 
           <Slide notes={`we need to define our cache strategy`}>
-          <Fill>
-            <CodePane theme="light" lang="jsx" source={jsx`
+            <Fill>
+              <CodePane
+                theme="light"
+                lang="jsx"
+                source={jsx`
               const cache = new InMemoryCache();
               const client = new ApolloClient({ cache });
-            `}/>
+            `}
+              />
             </Fill>
           </Slide>
 
-          <Slide notes={`and we define our middleware for handling requests called 'links'`}>
-          <Fill>
-            <CodePane theme="light" lang="jsx" source={jsx`
+          <Slide
+            notes={`and we define our middleware for handling requests called 'links'`}
+          >
+            <Fill>
+              <CodePane
+                theme="light"
+                lang="jsx"
+                source={jsx`
 
               // use local state link since this presentation has no server
               const stateLink = withClientState({
@@ -268,13 +281,17 @@ export default WithSlidesLink(
                 cache,
                 link: stateLink
               });
-            `}/>
+            `}
+              />
             </Fill>
           </Slide>
 
           <Slide notes={`lets not forget to import all the things`}>
-          <Fill>
-            <CodePane theme="light" lang="jsx" source={jsx`
+            <Fill>
+              <CodePane
+                theme="light"
+                lang="jsx"
+                source={jsx`
               import ApolloClient from "apollo-client";
               import { InMemoryCache } from "apollo-cache-inmemory";
               import { withClientState } from "apollo-link-state";
@@ -294,10 +311,10 @@ export default WithSlidesLink(
                 cache,
                 link: stateLink
               });
-            `}/>
+            `}
+              />
             </Fill>
           </Slide>
-
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={5} textColor="black">
@@ -407,6 +424,13 @@ export default WithSlidesLink(
 
           <Slide bgImage={images.graphqlIntro} />
           <Slide bgImage={images.graphqlArch} />
+
+          <Slide>
+            <Link href="https://launchpad.graphql.com/1jzxrj179">
+              Try Launchpad
+            </Link>
+            <Cite>by Sashko Stubailo (Apollo)</Cite>
+          </Slide>
 
           <Slide transition={["slide"]}>
             <Text textColor="tertiary">Who's using GraphQL?</Text>
