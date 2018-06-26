@@ -76,6 +76,8 @@ const theme = createTheme(
   }
 );
 
+const jsx = String.raw;
+
 // Useful links:
 // http://www.reactnativeexpress.com/
 // https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/
@@ -215,12 +217,87 @@ export default WithSlidesLink(
           </Slide>
 
           <Slide>
+            <Text>But I have typescript, I don't need this!</Text>
+          </Slide>
+
+          <Slide>
+            <Text>Okay, I get it, but what about react native?</Text>
+          </Slide>
+
+          <Slide>
             <ReactExample code={require("./fragment-composition-native.raw")} />
           </Slide>
 
           <Slide>
             <Heading>Configuration?</Heading>
           </Slide>
+
+          <Slide>
+          <Fill>
+            <CodePane theme="light" lang="jsx" source={jsx`
+              const client = new ApolloClient();
+            `}/>
+            </Fill>
+          </Slide>
+
+          <Slide notes={`we need to define our cache strategy`}>
+          <Fill>
+            <CodePane theme="light" lang="jsx" source={jsx`
+              const cache = new InMemoryCache();
+              const client = new ApolloClient({ cache });
+            `}/>
+            </Fill>
+          </Slide>
+
+          <Slide notes={`and we define our middleware for handling requests called 'links'`}>
+          <Fill>
+            <CodePane theme="light" lang="jsx" source={jsx`
+
+              // use local state link since this presentation has no server
+              const stateLink = withClientState({
+                cache,
+                resolvers: {
+                  ...
+                },
+                defaults: {
+                  ...
+                }
+              });
+              const cache = new InMemoryCache();
+              const client = new ApolloClient({
+                cache,
+                link: stateLink
+              });
+            `}/>
+            </Fill>
+          </Slide>
+
+          <Slide notes={`lets not forget to import all the things`}>
+          <Fill>
+            <CodePane theme="light" lang="jsx" source={jsx`
+              import ApolloClient from "apollo-client";
+              import { InMemoryCache } from "apollo-cache-inmemory";
+              import { withClientState } from "apollo-link-state";
+
+              // use local state link since this presentation has no server
+              const stateLink = withClientState({
+                cache,
+                resolvers: {
+                  ...
+                },
+                defaults: {
+                  ...
+                }
+              });
+              const cache = new InMemoryCache();
+              const client = new ApolloClient({
+                cache,
+                link: stateLink
+              });
+            `}/>
+            </Fill>
+          </Slide>
+
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={5} textColor="black">
