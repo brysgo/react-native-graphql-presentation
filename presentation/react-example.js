@@ -39,12 +39,12 @@ const styles = {
 
 const AddressListData = [
   {
-    name: { first: "John", last: "Doe" },
+    name: { first: "John", middle: "Deer", last: "Doe" },
     dob: "03/24/85",
     avatar: "https://placekitten.com/50/50"
   },
   {
-    name: { first: "Jim", last: "Bean" },
+    name: { first: "Jim", middle: "Caserole", last: "Bean" },
     dob: "06/13/88",
     avatar: "https://placekitten.com/50/50"
   }
@@ -62,6 +62,7 @@ const stateLink = withClientState({
       name: {
         __typename: "Name",
         first: "Jo",
+        middle: "Mo",
         last: "Schmo"
       },
       contacts: AddressListData.map(a => {

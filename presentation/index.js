@@ -193,6 +193,7 @@ export default WithSlidesLink(
               key={i}
               notes={`
             show how confusion builds over time
+            in the last slide, think though what is needed to add middle name
           `}
             >
               <ReactExample
@@ -203,13 +204,26 @@ export default WithSlidesLink(
 
           <Slide
             notes={`
-            ...
+              show how each component has exactly the data it needs declared
+              show what
           `}
           >
             <ReactExample code={require("./after-fragment-composition.raw")} />
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="primary">
+          <Slide
+            transition={["zoom", "fade"]}
+            bgColor="primary"
+            notes={`
+            talk about my encapsulation rules:
+            1. If a field exists in the query or fragment that isn't being used in the
+             immediate component that query or fragment is for, delete it because it 
+             isn't being used.
+            2. If a variable is being passed in from the great beyond, it is either 
+            coming from a query or fragment that you declare right alongside the 
+            component, or it is view state coordinated accross a small heirarchy.
+          `}
+          >
             <Heading size={4} textColor="black">
               PSA: Encapsulation
             </Heading>
