@@ -203,18 +203,16 @@ export default WithSlidesLink(
           ))}
 
           <Slide
-            notes={`
-              show how each component has exactly the data it needs declared
-              show what
-          `}
-          >
-            <ReactExample code={require("./after-fragment-composition.raw")} />
-          </Slide>
-
-          <Slide
             transition={["zoom", "fade"]}
             bgColor="primary"
             notes={`
+            Have audience members talk to eachother about horror stories when
+            they were working on a project and had to search around to figure
+            out where data was coming from. When they would change some data
+            field and you wouldn't know what would break from it. When a central
+            blob of data would start to ammass unmanagable ammounts of
+            information and it was unclear where, if anywhere it was being used.
+
             talk about my encapsulation rules:
             1. If a field exists in the query or fragment that isn't being used in the
              immediate component that query or fragment is for, delete it because it 
@@ -232,28 +230,16 @@ export default WithSlidesLink(
             />
           </Slide>
 
-          {/* FIXME: Bookmark, remove when done */}
-
           <Slide
             notes={`
-              Rename MyComponent to Application
-
-              // Everything extends React.Component
-              class Application extends React.Component {
-                render() {
-                  return (
-                    <div>
-                      {this.props.title}
-                    </div>
-                  );
-                }
-              }
-
-              render(<Application title='Hello world!' />, mountNode);
+              show how each component has exactly the data it needs declared
+              demonstrate adding middle name, try breaking encapsulation
           `}
           >
-            <ReactExample />
+            <ReactExample code={require("./after-fragment-composition.raw")} />
           </Slide>
+
+          {/* FIXME: Bookmark, remove when done */}
 
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={4} textColor="black">
