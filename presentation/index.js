@@ -38,7 +38,6 @@ import createTheme from "spectacle/lib/themes/default";
 require("normalize.css");
 require("spectacle/lib/themes/default");
 require("./index.css");
-require("codemirror/mode/jsx/jsx");
 
 import { FolderStructure, Folder, File } from "./folders";
 
@@ -236,7 +235,11 @@ export default WithSlidesLink(
               demonstrate adding middle name, try breaking encapsulation
           `}
           >
-            <ReactExample code={require("./after-fragment-composition.raw")} />
+            <ReactExample code={require("./fragment-composition.raw")} />
+          </Slide>
+
+          <Slide>
+            <ReactExample code={require("./fragment-composition-native.raw")}  />
           </Slide>
 
           {/* FIXME: Bookmark, remove when done */}

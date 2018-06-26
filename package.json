@@ -23,10 +23,12 @@
     "normalize.css": "3.0.3",
     "react": "^16.4.1",
     "react-apollo": "^2.1.6",
+    "react-art": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-listpath": "^1.0.2",
     "react-monoquery": "^1.0.7",
-    "react-native-web-player": "AlanFoster/react-native-web-player#gh-pages",
+    "react-native-web": "^0.8.4",
+    "react-native-web-player": "^2.0.0-alpha.3",
     "spectacle": "^4.3.1"
   },
   "devDependencies": {
