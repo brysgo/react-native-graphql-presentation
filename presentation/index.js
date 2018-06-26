@@ -45,7 +45,8 @@ import ReactExample from "./react-example";
 import WithSlidesLink from "./with-slides-link";
 
 const images = {
-  nesting: require("../assets/nesting.gif")
+  nesting: require("../assets/nesting.gif"),
+  laughingguy: require("../assets/laughingguy.png")
 };
 
 const logos = {
@@ -215,6 +216,10 @@ export default WithSlidesLink(
             <ReactExample code={require("./fragment-composition-native.raw")} />
           </Slide>
 
+          <Slide>
+            <Heading>Configuration?</Heading>
+          </Slide>
+
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={5} textColor="black">
               {"Apollo Client 2 <> Relay Modern"}
@@ -279,6 +284,46 @@ export default WithSlidesLink(
                 </ListItem>
               </Appear>
             </List>
+          </Slide>
+
+          <Slide>
+            <Text>
+              You mentioned something about making generic APIs and not tightly
+              coupled App Services?
+            </Text>
+          </Slide>
+
+          <Slide align="flex-start flex-start">
+            <Text textAlign="left">
+              An app and a website walk into a bar...
+            </Text>
+            <Appear>
+              <Text textAlign="left">[website] I'll have my usual</Text>
+            </Appear>
+            <Appear>
+              <Text textAlign="right">
+                one large API response coming up [server]
+              </Text>
+            </Appear>
+            <Appear>
+              <Text textAlign="left">
+                [app] I'll take the user's names, their recent transactions,
+                ooh, and their friends names
+              </Text>
+            </Appear>
+            <Appear>
+              <Fill>
+                <Text textAlign="right">...[server]</Text>
+                <Image width="25%" src={images.laughingguy} />
+              </Fill>
+            </Appear>
+          </Slide>
+
+          <Slide>
+            <Text>
+              We are working with the same data and permissions, why do I need a
+              whole new API just because my views are different?
+            </Text>
           </Slide>
 
           <Slide transition={["slide"]}>
