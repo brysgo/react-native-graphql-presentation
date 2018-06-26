@@ -46,7 +46,9 @@ import WithSlidesLink from "./with-slides-link";
 
 const images = {
   nesting: require("../assets/nesting.gif"),
-  laughingguy: require("../assets/laughingguy.png")
+  laughingguy: require("../assets/laughingguy.png"),
+  graphqlIntro: require("../assets/graphql-intro.png"),
+  graphqlArch: require("../assets/graphql-architecture.png")
 };
 
 const logos = {
@@ -325,6 +327,9 @@ export default WithSlidesLink(
               whole new API just because my views are different?
             </Text>
           </Slide>
+
+          <Slide bgImage={images.graphqlIntro} />
+          <Slide bgImage={images.graphqlArch} />
 
           <Slide transition={["slide"]}>
             <Text textColor="tertiary">Who's using GraphQL?</Text>
