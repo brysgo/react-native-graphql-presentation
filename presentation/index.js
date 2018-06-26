@@ -209,16 +209,16 @@ export default WithSlidesLink(
             <ReactExample code={require("./after-fragment-composition.raw")} />
           </Slide>
 
-          {/* FIXME: Bookmark, remove when done */}
-
           <Slide transition={["zoom", "fade"]} bgColor="primary">
             <Heading size={4} textColor="black">
-              Configuring Components
+              PSA: Encapsulation
             </Heading>
-            <Heading size={6} textColor="tertiary">
-              props
-            </Heading>
+            <img
+              src={"https://media.giphy.com/media/X8HbeXDF7nzaM/giphy.gif"}
+            />
           </Slide>
+
+          {/* FIXME: Bookmark, remove when done */}
 
           <Slide
             notes={`

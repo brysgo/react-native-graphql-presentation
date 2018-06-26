@@ -32,18 +32,4 @@ class AddressList extends React.Component {
   }
 }
 
-const styles = {
-  row: {
-    display: "flex",
-    flexDirection: "row",
-    padding: 10
-  },
-  details: {
-    display: "flex",
-    flexDirection: "column",
-    fontSize: 23,
-    paddingLeft: 10
-  }
-};
-
 render(<AddressList addresses={AddressListData} />);
