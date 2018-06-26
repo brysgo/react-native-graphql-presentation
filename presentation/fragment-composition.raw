@@ -1,0 +1,93 @@
+class AddressRow extends React.Component {
+  render() {
+    return (
+      <Fragments fragments={AddressRow.fragments}>
+        {({
+          data: {
+            name: { first, last },
+            dob,
+            avatar
+          }
+        }) => (
+          <div style={styles.row}>
+            <div>
+              <img src={avatar} />
+            </div>
+            <div style={styles.details}>
+              <div>
+                {first} {last}
+              </div>
+              <div>{dob}</div>
+            </div>
+          </div>
+        )}
+      </Fragments>
+    );
+  }
+}
+AddressRow.fragments = {
+  data: gql`
+    fragment AddressRow on Person {
+      avatar
+      name {
+        first
+        last
+      }
+      dob
+    }
+  `
+};
+
+class AddressList extends React.Component {
+  render() {
+    return (
+      <Fragments fragments={AddressList.fragments}>
+        {data => (
+          <ListProvider>
+            {data.person.contacts.map((_, i) => <AddressRow key={i} />)}
+          </ListProvider>
+        )}
+      </Fragments>
+    );
+  }
+}
+AddressList.fragments = {
+  person: gql`
+    fragment AddressList_person on Person {
+      contacts {
+        ...AddressRow
+      }
+    }
+    ${AddressRow.fragments.data}
+  `
+};
+
+class App extends React.Component {
+  render() {
+    return (
+      <ApolloProvider client={client}>
+        <MonoQuery
+          query={gql`
+            query AppQuery {
+              currentUser {
+                name {
+                  first
+                  last
+                }
+                ...AddressList_person
+              }
+            }
+            ${AddressList.fragments.person}
+          `}
+        >
+          {({ loading, data }) => {
+            if (loading) return <div>loading</div>;
+            return <AddressList />;
+          }}
+        </MonoQuery>
+      </ApolloProvider>
+    );
+  }
+}
+
+render(<App />);

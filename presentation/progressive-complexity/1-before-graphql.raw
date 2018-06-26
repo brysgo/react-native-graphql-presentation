@@ -1,0 +1,25 @@
+class AddressRow extends React.Component {
+  render() {
+    const {
+      name: { first, last },
+      dob,
+      avatar
+    } = this.props.user;
+
+    return (
+      <div style={styles.row}>
+        <div>
+          <img src={avatar} />
+        </div>
+        <div style={styles.details}>
+          <div>
+            {first} {last}
+          </div>
+          <div>{dob}</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+render(<AddressRow user={AddressListData[0]} />);

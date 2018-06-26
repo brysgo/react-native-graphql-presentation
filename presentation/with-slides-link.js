@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function (Presentation) {
-  const slidesUrl = 'https://alanfoster.github.io/react-native-presentation';
+  const slidesUrl = 'https://brysgo.github.io/react-native-graphql-presentation';
   return (props) => (
     <div>
       <div style={{
