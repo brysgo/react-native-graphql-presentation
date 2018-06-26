@@ -190,6 +190,7 @@ export default WithSlidesLink(
 
           {[1, 2].map(i => (
             <Slide
+              key={i}
               notes={`
             show how confusion builds over time
           `}

@@ -14,7 +14,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",
+    "apollo-link-http": "^1.5.4",
+    "apollo-link-state": "^0.4.1",
     "graphql-path": "^3.1.3",
     "monoquery": "^1.3.1",
     "normalize.css": "3.0.3",

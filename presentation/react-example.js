@@ -1,8 +1,12 @@
 import React from "react";
 import { ComponentPlayground } from "spectacle";
 import { ListProvider } from "react-listpath";
-import { Fragments } from "react-monoquery";
+import { Fragments, MonoQuery } from "react-monoquery";
 import gql from "graphql-path";
+import { withClientState } from "apollo-link-state";
+import ApolloClient from "apollo-client";
+import { ApolloProvider } from "react-apollo";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
 const basicReactExample = `
 // Everything extends React.Component
@@ -46,7 +50,44 @@ const AddressListData = [
   }
 ];
 
-const scope = { styles, AddressListData, ListProvider, gql, Fragments };
+// This is the same cache you pass into new ApolloClient
+const cache = new InMemoryCache();
+
+const stateLink = withClientState({
+  cache,
+  defaults: {
+    currentUser: {
+      id: "one",
+      __typename: "Person",
+      name: {
+        __typename: "Name",
+        first: "Jo",
+        last: "Schmo"
+      },
+      contacts: AddressListData.map(a => {
+        a.__typename = "Person";
+        a.name.__typename = "Name";
+        return a;
+      })
+    }
+  }
+});
+
+const client = new ApolloClient({
+  cache,
+  link: stateLink
+});
+
+const scope = {
+  styles,
+  AddressListData,
+  ListProvider,
+  gql,
+  MonoQuery,
+  Fragments,
+  ApolloProvider,
+  client
+};
 
 export default ({ code }) => (
   <ComponentPlayground
